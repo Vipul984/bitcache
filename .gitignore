@@ -1,0 +1,46 @@
+# Go binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+coverage.txt
+coverage.html
+
+# Dependency directories
+vendor/
+
+# Go workspace
+go.work
+go.work.sum
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Bitcache test data
+testdata/tmp/
+*.data
+*.hint
+!docs/**/*.data
+!docs/**/*.hint
+
+# Benchmark results
+*.pprof
+cpu.prof
+mem.prof
+
+# --- PRIVATE PLANNING FILES (local only, never pushed) ---
+CLAUDE.md
+SETUP.md
+docs/sessions/
+docs/issues/
+docs/ROADMAP.md
+docs/decisions
+scripts/create_issues.sh
+EOF
