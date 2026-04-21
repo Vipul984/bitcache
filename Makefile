@@ -1,0 +1,13 @@
+.PHONY: test lint bench build
+
+build:
+	go build ./...
+
+test:
+	go test -race -count=1 ./...
+
+bench:
+	go test -run='^$$' -bench=. -benchmem ./...
+
+lint:
+	golangci-lint run ./...
