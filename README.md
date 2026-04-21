@@ -42,7 +42,7 @@ bitcache is a Go library that works like `go-cache` or `ristretto` but persists 
 ## Quickstart (planned for v0.1)
 
 ```go
-import "github.com/YOUR_USERNAME/bitcache"
+import "github.com/Vipul984/bitcache"
 
 cache, err := bitcache.Open("/var/cache/myapp")
 if err != nil { panic(err) }
@@ -55,21 +55,9 @@ val, err := cache.Get([]byte("user:42"))
 cache.Delete([]byte("user:42"))
 ```
 
-## Roadmap
-
-- **v0.1** — Core storage engine, basic API, TTLs, merge/compaction *(you are here)*
-- **v0.2+** — Informed by real usage; likely: better eviction policies, benchmarks, more index backends
-- **v1.0** — Production-hardened, API frozen, battle-tested
-
-See [docs/ROADMAP.md](docs/ROADMAP.md) for detail.
-
 ## Project organization
 
 - [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — how bitcache works internally
-- [docs/ROADMAP.md](docs/ROADMAP.md) — what ships when
-- [docs/sessions/](docs/sessions/) — one document per weekend work session
-- [docs/decisions/](docs/decisions/) — architecture decision records
-- [CLAUDE.md](CLAUDE.md) — context for Claude Code when working on this repo
 
 ## License
 
