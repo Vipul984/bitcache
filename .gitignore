@@ -35,12 +35,4 @@ testdata/tmp/
 cpu.prof
 mem.prof
 
-# --- PRIVATE PLANNING FILES (local only, never pushed) ---
-CLAUDE.md
-SETUP.md
-docs/sessions/
-docs/issues/
-docs/ROADMAP.md
-docs/decisions
-scripts/create_issues.sh
 EOF
