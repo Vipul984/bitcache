@@ -54,6 +54,13 @@ func Decode(buf []byte) (Record, error) {
 		return Record{}, ErrTruncated
 	}
 
+	keyLen := binary.BigEndian.Uint32(buf[12:16])
+	valLen := binary.BigEndian.Uint32(buf[16:20])
+
+	if len(buf) < HeaderSize+int(keyLen)+int(valLen) {
+		return Record{}, ErrTruncated
+	}
+
 	storedChecksum := binary.BigEndian.Uint32(buf[0:4])
 	computedChecksum := crc32.ChecksumIEEE(buf[4:])
 
@@ -62,12 +69,6 @@ func Decode(buf []byte) (Record, error) {
 	}
 
 	timestamp := binary.BigEndian.Uint64(buf[4:12])
-	keyLen := binary.BigEndian.Uint32(buf[12:16])
-	valLen := binary.BigEndian.Uint32(buf[16:20])
-
-	if len(buf) < HeaderSize+int(keyLen)+int(valLen) {
-		return Record{}, ErrTruncated
-	}
 
 	lastIndexOfKey := 20 + keyLen
 	lastIndexOfValue := 20 + keyLen + valLen
